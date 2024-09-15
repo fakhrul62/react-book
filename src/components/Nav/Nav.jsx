@@ -22,7 +22,7 @@ const Nav = () => {
   </>
   return (
     <div>
-      <Navbar fluid rounded className="w-10/12 mx-auto !px-0">
+      <Navbar fluid rounded className="w-10/12 mx-auto !px-0 mt-2">
         <NavLink to="/" className="flex items-center">
           <img
             src="/react.svg"
