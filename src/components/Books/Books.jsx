@@ -10,7 +10,7 @@ const Books = () => {
         .then(data=> setBooks(data))
     }, []);
     return (
-        <div className='w-10/12 mx-auto mb-10'>
+        <div className='mb-10'>
             <div className='text-center my-10'>
                 <h3 className='font-extrabold text-4xl text-black'>Books : {books.length}</h3>
             </div>
