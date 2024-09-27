@@ -40,7 +40,8 @@ const BookDetails = () => {
         text: "Book Added to Books Read List!",
         icon: "success",
       });
-    } else {
+    }
+    else {
       const isExist = getBooksRead?.find((book) => book.id === intId);
       if (!isExist) {
         addedArray.push(...getBooksRead, book);
@@ -76,7 +77,8 @@ const BookDetails = () => {
           text: "Book Added to Wishlist!",
           icon: "success",
         });
-      } else if (!getBooksRead) {
+      } 
+      else if (!getBooksRead) {
         addedArray.push(book);
         localStorage.setItem("wishlist", JSON.stringify(addedArray));
         Swal.fire({
@@ -84,14 +86,16 @@ const BookDetails = () => {
           text: "Book Added to Wishlist!",
           icon: "success",
         });
-      } else {
+      } 
+      else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Already Read it!",
         });
       }
-    } else {
+    } 
+    else {
       const isExist = getWishList?.find((book) => book.id === intId);
       if (!isExist) {
         if (!isExistOnBooksRead) {
