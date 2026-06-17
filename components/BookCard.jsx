@@ -13,7 +13,7 @@ export default function BookCard({ book, index }) {
           {book.coverUrl ? (
             <Image src={book.coverUrl} alt={`Cover of ${book.title}`} fill sizes="(max-width: 768px) 45vw, 220px" className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
           ) : (
-            <div className="flex h-full items-center justify-center px-6 text-center font-display text-2xl text-ink/45">{book.title}</div>
+            <div className="flex h-full items-center justify-center px-6 text-center font-display text-xl text-ink/45">{book.title}</div>
           )}
           {typeof index === "number" ? (
             <span className="absolute left-3 top-3 rounded-full bg-ink px-2 py-1 text-xs text-paper">{String(index + 1).padStart(2, "0")}</span>
@@ -21,7 +21,7 @@ export default function BookCard({ book, index }) {
         </div>
         <div className="mt-4 space-y-3">
           <div>
-            <h3 className="line-clamp-2 font-display text-2xl font-semibold leading-[1.05] text-ink">{book.title}</h3>
+            <h3 className="line-clamp-2 font-display text-xl font-semibold leading-tight text-ink">{book.title}</h3>
             <p className="mt-1 line-clamp-1 text-sm text-ink/65">{authors}</p>
           </div>
           <div className="flex items-center justify-between gap-3 text-xs text-ink/65">

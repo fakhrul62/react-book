@@ -4,12 +4,12 @@ const tailwindConfig = {
   theme: {
     extend: {
       colors: {
-        ink: "#15130f",
-        paper: "#faf7f0",
-        linen: "#efe6d6",
-        moss: "#3f5f4a",
-        plum: "#7b3f55",
-        gilt: "#b98746"
+        ink: "#10201b",
+        paper: "#f7fbf8",
+        linen: "#e4f1ea",
+        moss: "#2f7d62",
+        plum: "#0f766e",
+        gilt: "#f97316"
       },
       fontFamily: {
         display: ["var(--font-display)", "Arial", "sans-serif"],

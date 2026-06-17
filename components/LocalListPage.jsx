@@ -32,7 +32,7 @@ export default function LocalListPage({ storageKey, title, kicker }) {
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-end">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-plum">{kicker}</p>
-          <h1 className="mt-3 font-display text-5xl font-bold leading-none text-ink sm:text-7xl">{title}</h1>
+          <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl lg:text-6xl">{title}</h1>
         </div>
         <div className="space-y-4">
           <LocalStorageNotice />

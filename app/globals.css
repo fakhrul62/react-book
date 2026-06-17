@@ -21,9 +21,10 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(185, 135, 70, 0.18), transparent 30rem),
-    linear-gradient(180deg, #faf7f0 0%, #f3eadb 48%, #faf7f0 100%);
-  color: #15130f;
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.16), transparent 28rem),
+    radial-gradient(circle at 85% 12%, rgba(249, 115, 22, 0.11), transparent 24rem),
+    linear-gradient(180deg, #f7fbf8 0%, #eef8f2 46%, #f8fbff 100%);
+  color: #10201b;
   font-family: var(--font-body), Arial, sans-serif;
 }
 
@@ -33,7 +34,7 @@ a {
 }
 
 ::selection {
-  background: #7b3f55;
+  background: #0f766e;
   color: #fffaf2;
 }
 

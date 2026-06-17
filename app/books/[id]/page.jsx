@@ -5,6 +5,9 @@ import BookActions from "@/components/BookActions";
 import BookCard from "@/components/BookCard";
 import { getBookById } from "@/lib/books";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function BookPage({ params }) {
   const resolvedParams = await params;
   const { configured, book, related } = await getBookById(resolvedParams.id);
@@ -34,7 +37,7 @@ export default async function BookPage({ params }) {
 
           <div className="flex flex-col justify-center">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-plum">{book.first_publish_year || "Publication year unknown"}</p>
-            <h1 className="mt-4 font-display text-6xl font-bold leading-[0.92] text-ink sm:text-8xl">{book.title}</h1>
+            <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl lg:text-6xl">{book.title}</h1>
             <p className="mt-5 text-xl text-ink/70">By {authors}</p>
             <div className="mt-7 flex flex-wrap gap-2">
               {book.subjects?.slice(0, 10).map((subject) => (
@@ -50,7 +53,7 @@ export default async function BookPage({ params }) {
 
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_22rem] lg:px-8">
         <div>
-          <h2 className="font-display text-4xl font-bold text-ink">Synopsis</h2>
+          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Synopsis</h2>
           <p className="mt-4 whitespace-pre-line text-base leading-8 text-ink/75">{book.description || "No synopsis was available in the synced Open Library data."}</p>
         </div>
         <aside className="rounded-lg border border-ink/10 bg-white/65 p-5">
@@ -68,7 +71,7 @@ export default async function BookPage({ params }) {
       {related.length ? (
         <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-plum">Shared subjects</p>
-          <h2 className="mt-2 font-display text-5xl font-bold">Similar books</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Similar books</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((item) => <BookCard key={item.id} book={item} />)}
           </div>

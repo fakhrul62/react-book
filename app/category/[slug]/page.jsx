@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import BookCard from "@/components/BookCard";
 import { getBooksBySubject } from "@/lib/books";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function CategoryPage({ params, searchParams }) {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
@@ -15,7 +18,7 @@ export default async function CategoryPage({ params, searchParams }) {
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-4 border-b border-ink/10 pb-8">
         <Link href="/" className="focus-ring w-fit rounded-md text-sm font-bold text-plum">Back to home</Link>
-        <h1 className="font-display text-6xl font-bold leading-none text-ink sm:text-8xl">{subject?.name || "Category"}</h1>
+        <h1 className="font-display text-4xl font-bold leading-tight text-ink sm:text-5xl lg:text-6xl">{subject?.name || "Category"}</h1>
         <p className="max-w-2xl text-sm leading-7 text-ink/65">All books in this subject come from the Supabase cache populated by the Open Library sync pipeline.</p>
       </div>
 
