@@ -1,55 +1,56 @@
 # React Book
 
-## Live Link:
-https://react-book-fakhrul62.netlify.app/
+React Book is a modern anonymous book-discovery platform built with Next.js App Router, Tailwind CSS, and Supabase.
 
+## What Changed
 
-## Project Overview
-This project, **React Book**, is a web application built using React, Vite, and Tailwind CSS. It provides an interactive user interface with routing, styled components, and Firebase integration.
+- No authentication, login, or registration.
+- Book pages, homepage sections, category pages, and search read from Supabase only.
+- Open Library is called only by the scheduled sync route at `/api/sync/open-library`.
+- Wishlist and Readlist are stored in browser `localStorage` only.
+- Wishlist/Readlist support remove, copy as plain text, export as PDF, and copy a shareable link.
 
-## Features
-- **React & Vite**: Fast development experience with Vite.
-- **Routing**: Handled using `react-router-dom`.
-- **UI Components**: Styled with Tailwind CSS and DaisyUI.
-- **Icons & Tabs**: Implemented using `react-icons` and `react-tabs`.
-- **Firebase Integration**: Includes Firebase for authentication and database support.
-- **Linting & Best Practices**: ESLint for maintaining code quality.
+## Data Setup
 
-## Technologies Used
-- **Frontend**: React, React Router, Flowbite React, SweetAlert2
-- **Backend**: Firebase
-- **Styling**: Tailwind CSS, DaisyUI
-- **Build Tool**: Vite
-- **Linting & Formatting**: ESLint
+1. Create a Supabase project.
+2. Run `supabase/schema.sql` in the Supabase SQL editor.
+3. Copy `.env.example` to `.env.local` and fill:
 
-## Installation & Setup
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/react-book.git
-   ```
-2. Navigate to the project folder:
-   ```sh
-   cd react-book
-   ```
-3. Install dependencies:
-   ```sh
-   npm install
-   ```
-4. Start the development server:
-   ```sh
-   npm run dev
-   ```
-5. Open `http://localhost:5173/` in your browser.
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+CRON_SECRET=
+```
 
-## Deployment
-- The project is built using Vite and can be deployed easily using platforms like Netlify or Vercel.
+4. Start the app:
 
-## Contribution
-Feel free to fork the repository and submit pull requests for improvements.
+```bash
+npm install
+npm run dev
+```
 
-## License
-This project is licensed under the MIT License.
+5. Trigger the first sync:
 
----
-For any questions, contact ifakhrul23@gmail.com.
+```bash
+curl -H "Authorization: Bearer YOUR_CRON_SECRET" http://localhost:3000/api/sync/open-library
+```
 
+The app intentionally shows empty operational states until Supabase contains synced Open Library data.
+
+## Scheduled Sync
+
+`vercel.json` schedules `/api/sync/open-library` daily at 03:00 UTC. Set `CRON_SECRET` in Vercel and configure the same bearer token for protected manual calls.
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run start
+```
+
+## Storage Note
+
+Wishlist and Readlist data never leaves the browser. It is not synced across devices and can be lost if browser data is cleared.
